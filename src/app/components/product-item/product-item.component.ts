@@ -1,10 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Product } from '../../models/product.model';
-import { CartService } from '../../services/cart.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+import { Product } from '../../models/product.model';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-item',
@@ -15,19 +14,15 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProductItemComponent {
   @Input({ required: true }) product!: Product;
-  @Output() productAdded = new EventEmitter<void>();
+  @Output() productAdded = new EventEmitter<Product>();
 
   qty = 1;
 
-  constructor(
-    private cartService: CartService,
-    private toastr: ToastrService
-  ) {}
+  constructor(private cartService: CartService) {}
 
   addToCart() {
     const quantity = Math.max(1, Math.floor(this.qty));
     this.cartService.addToCart(this.product, quantity);
-    this.toastr.success(`${this.product.name} added to cart!`, 'Success');
-    this.productAdded.emit(); // إعلام المكون الأب
+    this.productAdded.emit(this.product);
   }
 }

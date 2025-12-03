@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductItemComponent } from '../product-item/product-item.component';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product.model';
-import { CartService } from '../../services/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-list',
@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private cartService: CartService
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  onProductAdded() {
-    console.log('Product added to cart from list');
+  onProductAdded(product: Product) {
+    this.toastr.success(`${product.name} added to cart!`, 'Added to Cart');
   }
 }

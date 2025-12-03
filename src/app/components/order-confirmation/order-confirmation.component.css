@@ -1,0 +1,106 @@
+/* Center the card and add soft background */
+.order-confirmation {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 20% 20%, #f8fbff, #f3f6fa, #eff2f7);
+  padding: 2rem 1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.06),
+    0 10px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  padding: 40px 32px;
+}
+
+.checkmark {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: #1f8f4d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.checkmark span {
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 28px;
+  color: #168848;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+p {
+  color: #4b5563;
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0 auto 28px;
+  max-width: 420px;
+}
+
+.actions {
+  display: grid;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, color 0.12s ease;
+}
+
+.btn.primary {
+  background: #0d6efd;
+  color: #fff;
+  box-shadow: 0 12px 25px rgba(13, 110, 253, 0.3);
+}
+
+.btn.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(13, 110, 253, 0.35);
+}
+
+.btn.ghost {
+  border: 1px solid #cbd5e1;
+  color: #374151;
+  background: #fff;
+}
+
+.btn.ghost:hover {
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 576px) {
+  .card {
+    padding: 28px 22px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
